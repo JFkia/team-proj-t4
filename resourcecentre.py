@@ -21,15 +21,21 @@ class ResourceCenter:
 
     def main(self):
         # Refactor (A): Extract constants for choice integers
+        choice_add = 1
+        choice_display = 2
+        choice_loan = 3
+        choice_return = 4
+        choice_quit = 5
         # Refactor (A): Extract constants for option integers
-
+        option_camera = 1
+        option_laptop = 2
         #### Menu driven application ####
         # Display menu and obtain menu choices
         choice = self.display_menu()
 
-        while choice != 5:
+        while choice != choice_quit:
 
-            if choice == 1:
+            if choice == choice_add:
                 # Refactor (B): use printHeader(mesage)
                 print("")
                 print("==============================================")
@@ -47,7 +53,7 @@ class ResourceCenter:
                 option = int(input("Enter option to select item type >"))
 
                 # TO-DO: Write the code to ADD a digital camera or laptop.
-                if option == 1:
+                if option == option_camera:
                     assetTag = input("Enter asset tag >")
                     description = input("Enter descrition >")
                     opticalzoom = int(input("Enter optical zoom >"))
@@ -57,7 +63,7 @@ class ResourceCenter:
                     else:
                         print("Error adding digital camera.")
 
-                elif option == 2:
+                elif option == option_laptop:
                     assetTag = input("Enter asset tag >")
                     description = input("Enter descrition >")
                     os = input("Enter os >")
@@ -71,7 +77,7 @@ class ResourceCenter:
 
 
             
-            elif choice == 2:
+            elif choice == choice_display:
                 # Refactor (B): Extract duplicate codes to printHeader(message)
                 print("")
                 print("==============================================")
@@ -84,7 +90,7 @@ class ResourceCenter:
 
 
                 
-            elif choice == 3:
+            elif choice == choice_loan:
                 # Refactor (B): use printHeader(mesage)
                 print("")
                 print("==============================================")
@@ -99,7 +105,7 @@ class ResourceCenter:
 
                 # TO-DO: Write the code to LOAN a camcorder or chrome book
                 
-            elif choice == 4:
+            elif choice == choice_return:
                 # Refactor (B): use printHeader(mesage)
                 print("")
                 print("==============================================")
