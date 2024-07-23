@@ -60,7 +60,7 @@ class ResourceCenter:
 
                 elif option == 2:
                     assetTag = input("Enter asset tag >")
-                    description = input("Enter descrition >")
+                    description = input("Enter descripion >")
                     os = input("Enter os >")
                     result = self.inventory.addLaptop(assetTag, description, os)
                     if result:
