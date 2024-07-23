@@ -22,6 +22,7 @@ class ResourceCenter:
     def main(self):
         # Refactor (A): Extract constants for choice integers
         #hi
+        #test
         # Refactor (A): Extract constants for option integers
         
         #### Menu driven application ####
