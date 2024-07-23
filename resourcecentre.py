@@ -4,6 +4,54 @@ class ResourceCenter:
         ## Prepare the data (Inventory list)
         self.inventory = Inventory()
 
+def addCamera(self, assetTag, description, opticalzoom):
+    correct = True
+    if len(assetTag)== 0 or len(description) == 0 or opticalzoom<0:
+        correct = False 
+        error_message = "Incorrect values."
+    
+    notExist = True
+    for c in self.cameraList:
+        currentTag = c.getAssetTag()
+        if currentTag == c.getassetTag:
+            notExist = False
+            error_message = "Asset already exist."
+    
+    if correct and notExist:
+        new_camera = (assetTag, description, opticalzoom)
+        self.cameraList.append(new_camera)
+        return True
+    else:
+        print(error_message) 
+
+def findAsset(self, assetTag):
+    FoundAsset = None
+    for c in self.cameraList:
+        currentTag = c.getAssetTag()
+        if currentTag == assetTag:
+            FoundAsset = c
+    for l in self.laptopList:
+        currentTag = l.getAssetTag()
+        if currentTag == assetTag:
+            FoundAsset = 1
+    return FoundAsset
+
+def loanAsset(self, assertTag, dueDate):
+    success = False
+    if len(assertTag) > 0 and len(dueDate) > 0:
+        foundAssert = self.findAssert(assertTag)
+        if foundAssert != None:
+            if foundAssert.getIsAvailable() == "Yes":
+                foundAssert.setIsAvailable(False)
+                foundAssert.setdueDate(dueDate)
+                success = True
+    return success
+def loanCamera(self, assertTag, dueDate):
+    return self.loanAsset(assertTag, dueDate)
+
+def loanLaptop(self, assertTag, dueDate):
+    return self.loanAsset(assertTag, dueDate)
+
     def display_menu(self):
         choice = -1
         while not 1 <= choice <= 5:
