@@ -10,6 +10,12 @@ class Camera():
             self._isAvailable = True
             self._opticalZoom = opticalZoom
 
+        def __str__(self):
+             return "{:<10}{:<10}{:<12}{:<10}\n".format(
+                  self.getAssertTag(),self.getDescription(),
+                  self.getIsAvailable(),self.getDueDate(),
+                  self.getOpticalZoom())
+
         def getAssetTag(self):
             return self._assetTag
         
@@ -32,3 +38,8 @@ class Camera():
             
         def setIsAvailable(self, isAvailable):
             self._isAvailable = isAvailable
+
+        def __str__(self):
+             return"{:<10}{:<30}{:<10}{:<12}{:<10}\n",format(
+                  self.getAssertTag(),self.getDescription(),self.getIsAvailable(),self.getDueDate(),self.getOpticalZone()
+             )
