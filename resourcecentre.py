@@ -52,104 +52,91 @@ def loanCamera(self, assertTag, dueDate):
 def loanLaptop(self, assertTag, dueDate):
     return self.loanAsset(assertTag, dueDate)
 
-    def display_menu(self):
-        choice = -1
-        while not 1 <= choice <= 5:
-            print("\n==============================================")
-            print('RESOURCE CENTRE SYSTEM by Team 4')
-            print("1. Add item")
-            print("2. Display Inventory")
-            print("3. Loan item")
-            print("4. Return item")
-            print("5. Quit")
-            choice = int(input("Enter your choice >"))
-            if not 1 <= choice <= 5:
-                print("Invalid choice, please enter again.\n")
-        return choice
-
-    def printHeader(self, message):
+def display_menu(self):
+    choice = -1
+    while not 1 <= choice <= 5:
         print("\n==============================================")
-        print(message)
-        print("==============================================")
+        print('RESOURCE CENTRE SYSTEM by Team 4')
+        print("1. Add item")
+        print("2. Display Inventory")
+        print("3. Loan item")
+        print("4. Return item")
+        print("5. Quit")
+        choice = int(input("Enter your choice >"))
+        if not 1 <= choice <= 5:
+            print("Invalid choice, please enter again.\n")
+    return choice
 
-    def select_item_type(self):
-        print("\nItem types:")
-        print("1. Digital Camera")
-        print("2. Laptop")
-        option = int(input("Enter option to select item type >"))
-        return option
+def printHeader(self, message):
+    print("\n==============================================")
+    print(message)
+    print("==============================================")
 
-    def add_item(self):
-        self.printHeader("Add an item")
-        option = self.select_item_type()
-        if option == 1:  # Digital Camera
-            asset_tag = input("Enter asset tag >")
-            description = input("Enter description >")
-            optical_zoom = int(input("Enter optical zoom >"))
-            result = self.inventory.addCamera(asset_tag, description, optical_zoom)
-            if result:
-                print("Digital camera added.")
-            else:
-                print("Error adding digital camera.")
-        elif option == 2:  # Laptop
-            asset_tag = input("Enter asset tag >")
-            description = input("Enter description >")
-            os = input("Enter os >")
-            result = self.inventory.addLaptop(asset_tag, description, os)
-            if result:
-                print("Laptop added.")
-            else:
-                print("Error adding laptop.")
+def select_item_type(self):
+    print("\nItem types:")
+    print("1. Digital Camera")
+    print("2. Laptop")
+    option = int(input("Enter option to select item type >"))
+    return option
+
+def add_item(self):
+    self.printHeader("Add an item")
+    option = self.select_item_type()
+    if option == 1:  # Digital Camera
+        asset_tag = input("Enter asset tag >")
+        description = input("Enter description >")
+        optical_zoom = int(input("Enter optical zoom >"))
+        result = self.inventory.addCamera(asset_tag, description, optical_zoom)
+        if result:
+            print("Digital camera added.")
         else:
-            print("Invalid item type.")
+            print("Error adding digital camera.")
+    elif option == 2:  # Laptop
+        asset_tag = input("Enter asset tag >")
+        description = input("Enter description >")
+        os = input("Enter os >")
+        result = self.inventory.addLaptop(asset_tag, description, os)
+        if result:
+            print("Laptop added.")
+        else:
+            print("Error adding laptop.")
+    else:
+        print("Invalid item type.")
 
+def loan_item(self):
+    self.printHeader("Loan an item")
+    option = self.select_item_type()
+    # TO-DO: Implement loan item functionality
 
-            
-            elif choice == choice_display:
-                # Refactor (B): Extract duplicate codes to printHeader(message)
-                print("")
-                print("==============================================")
-                print("Display all items")
-                print("==============================================")
+def return_item(self):
+    self.printHeader("Return an item")
+    option = self.select_item_type()
+    # TO-DO: Implement return item functionality
 
-                # TO-DO: Write the code to display all digital camera or laptop.
-                print(self.inventory.getAvailableCamera())
-                print(self.inventory.getAvailableLaptop())
+def main(self):
+    choice_add = 1
+    choice_display = 2
+    choice_loan = 3
+    choice_return = 4
+    choice_quit = 5
 
-    def loan_item(self):
-        self.printHeader("Loan an item")
-        option = self.select_item_type()
-        # TO-DO: Implement loan item functionality
+    choice = self.display_menu()
 
-    def return_item(self):
-        self.printHeader("Return an item")
-        option = self.select_item_type()
-        # TO-DO: Implement return item functionality
-
-    def main(self):
-        choice_add = 1
-        choice_display = 2
-        choice_loan = 3
-        choice_return = 4
-        choice_quit = 5
+    while choice != choice_quit:
+        if choice == choice_add:
+            self.add_item()
+        elif choice == choice_display:
+            self.display_inventory()
+        elif choice == choice_loan:
+            self.loan_item()
+        elif choice == choice_return:
+            self.return_item()
+        else:
+            print("Invalid choice.")
 
         choice = self.display_menu()
 
-        while choice != choice_quit:
-            if choice == choice_add:
-                self.add_item()
-            elif choice == choice_display:
-                self.display_inventory()
-            elif choice == choice_loan:
-                self.loan_item()
-            elif choice == choice_return:
-                self.return_item()
-            else:
-                print("Invalid choice.")
-
-            choice = self.display_menu()
-
-        print("Goodbye.")
+    print("Goodbye.")
 
 if __name__ == "__main__":
     app = ResourceCenter()
