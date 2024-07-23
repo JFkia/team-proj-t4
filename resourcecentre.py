@@ -80,8 +80,8 @@ class ResourceCenter:
                 print("==============================================")
 
                 # TO-DO: Write the code to display all digital camera or laptop.
-                print(self.inventory.getAvailableCamera())
-                print(self.inventory.getAvailableLaptop())
+                print(self.inventory.getNotAvailableCamera())
+                print(self.inventory.getNotAvailableLaptop())
 
 
                 
